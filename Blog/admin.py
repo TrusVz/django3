@@ -3,6 +3,18 @@ from .models import Post
 
 # Register your models here.
 
-admin.site.register(Post)
+class PostAdmin(admin.ModelAdmin):
+    list_display = (
+        "title",
+        "author",
+        "body",
+    )
+
+    list_filter = (
+        "title",
+        "author",
+    )
+
+admin.site.register(Post, PostAdmin)
 
 
